@@ -1,0 +1,21 @@
+@(loginForm: Form[models.users.Login], user: models.users.User)
+@import helper._
+
+@main("Login", user){
+
+
+
+    @helper.form(action = controllers.security.routes.LoginController.loginSubmit()) {
+<form>
+<div class="form-group">
+    @inputText(loginForm("email"),  'class -> "form-control", 'label -> "Email Address",  'placeholder ->"examplecom")
+</div>
+<div class="form-group">
+    @inputPassword(loginForm("password"),  'class -> "form-control", 'label -> "Email Address",  'placeholder ->"examplecom")
+</div>
+    <input type="submit" value="Sign in" class="btn" id="Buttons">
+</form>
+    }
+
+}
+
