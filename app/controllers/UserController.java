@@ -14,6 +14,7 @@ import play.api.Environment;
 import views.html.*;
 import models.*;
 import models.users.User;
+import.models.users.*;
 
 import play.mvc.Http.*;
 import play.mvc.Http.MultipartFormData.FilePart;
