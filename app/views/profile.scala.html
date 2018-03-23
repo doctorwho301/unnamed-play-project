@@ -1,0 +1,22 @@
+@(user: models.users.User)
+@*
+ * Call the `main` template with two arguments. The first
+ * argument is a `String` with the title of the page, the second
+ * argument is an `Html` object containing the body of the page.
+ *@
+@main("Profile", user) {
+<!-- SOC -->
+<div class="container">
+ <div class="text-right">
+<figure class="figure">
+  <img src="https://picsum.photos/250" class="figure-img img-fluid rounded img-right" alt="A generic square placeholder image with rounded corners in a figure.">
+  <figcaption class="text-center">@user.getUsername()</figcaption>
+</figure>
+ </div>
+</div>
+
+
+
+
+<!-- EOC -->
+}

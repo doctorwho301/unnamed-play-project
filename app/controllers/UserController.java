@@ -14,7 +14,6 @@ import play.api.Environment;
 import views.html.*;
 import models.*;
 import models.users.User;
-import.models.users.*;
 
 import play.mvc.Http.*;
 import play.mvc.Http.MultipartFormData.FilePart;
@@ -46,5 +45,9 @@ public class UserController extends Controller {
     // Method returns the logged in user (or null)
     private User getUserFromSession() {
         return User.getUserById(session().get("email"));
+    }
+
+    public Result profile(){
+        return ok(profile.render(getUserFromSession()));
     }
 }

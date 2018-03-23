@@ -37,7 +37,7 @@
   </li>
   <li class="nav-item">
      @if(user != null){
-             <!-- This Line -->               <a class="nav-link" href="@controllers.security.routes.LoginController.logout()">@user.getName | Logout </a>
+             <!-- This Line -->               <a class="nav-link" href="@routes.UserController.profile()">@user.getName | Logout </a>
                       }else{
              <!-- And this Line -->              <a class="nav-link" href="@controllers.security.routes.LoginController.login()">Login </a>
                            }

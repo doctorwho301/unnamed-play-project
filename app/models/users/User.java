@@ -20,24 +20,38 @@ public class User extends Model {
     @Constraints.Required
     private String name;
 
+    private String username;
+
     @Constraints.Required
     private String password;
 
     @Constraints.Required
     private String role;
+   
+    @Constraints.Required
+    private String address1;
+
+    @Constraints.Required
+    private String address2;
+
+    private String city;
 
     public User()
     {
 
     }
     //Overloaded Constructors
-    public User(String email,String name,String password,String role)
+    public User(String email,String name,String password,String role, String address1, String address2, String city)
     {
 
         this.role = role;
         this.email = email;
         this.name = name;
+        this.username = name;
         this.password = password;
+        this.address1 = address1;
+        this.address2 = address2;
+	this.city = city;
     }
 
     //Generic query helper for entity User with unique id String
@@ -76,10 +90,28 @@ public class User extends Model {
     {
         return name;
     }
+    public String getUsername()
+    {
+	return username;
+    }
     public String getPassword()
     {
         return password;
     }
+    public String getAddress1()
+    {
+	return address1;
+    }
+    public String getAddress2()
+    {
+	return address2;
+    }
+    public String getCity()
+    {
+	return city;
+    }
+
+
     public void setEmail(String email)
     {
         this.email = email;
@@ -92,9 +124,25 @@ public class User extends Model {
     {
         this.name = name;
     }
+    public void setUsername(String username)
+    {
+	this.username = username;
+    }
     public void setPassword(String password)
     {
         this.password = password;
+    }
+    public void setAddress1(String address1)
+    {
+	this.address1 = address1;
+    }
+    public void setAddress2(String address2)
+    {
+	this.address2 = address2;
+    }
+    public void setCity(String city)
+    {
+	this.city = city;
     }
 
 }
