@@ -1,0 +1,29 @@
+@(listProductForm: Form[models.Product], user: models.users.User)
+@import helper._
+
+@main("Create a Listing", user){
+
+
+
+    @helper.form(action = routes.UserController.productSubmit()) {
+<form>
+<div class="form-group">
+    @inputText(listProductForm("Title"),  'class -> "form-control", 'label -> "Email Address",  'placeholder ->"e.g: Unopened original Avengers Comic")
+</div>
+<div class="form-group">
+    @inputText(listProductForm("Starting Price"),  'class -> "form-control", 'label -> "Email Address",  'placeholder ->"e.g: €40")
+</div>
+<div class="form-group">
+<textarea class="form-control" rows="3"> 
+    @inputText(listProductForm("Description"), 'class -> "form-control", 'label -> "Brief Description", 'placeholder ->"Write a couple of sentences cleary descriping your product")
+</textarea>
+</div>
+
+	@inputText(listProductForm("id"), '_label -> "", 'hidden -> "hidden")
+
+    <input type="submit" value="Make Public" class="btn" id="Buttons">
+</form>
+    }
+
+}
+

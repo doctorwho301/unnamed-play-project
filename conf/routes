@@ -5,6 +5,7 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 GET     /profile                    controllers.UserController.profile
+GET     /products                   controllers.HomeController.products(cat:Long ?=0L,filter?="")
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
@@ -24,3 +25,8 @@ GET     /logout                             controllers.security.LoginController
 
 GET     /signup                             controllers.HomeController.signUp
 POST    /signUpSubmit                       controllers.HomeController.signupSubmit
+
+
+
+GET     /user/listproduct                   controllers.UserController.listProduct
+POST    /user/productSubmit                 controllers.UserController.productSubmit

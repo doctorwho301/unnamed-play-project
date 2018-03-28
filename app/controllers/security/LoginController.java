@@ -70,7 +70,7 @@ public class LoginController extends Controller {
         // Generates a new session id
         session().clear();
         flash("success", "You've been logged out");
-        return redirect(routes.LoginController.login());
+        return redirect(controllers.routes.HomeController.index());
     }
 
 

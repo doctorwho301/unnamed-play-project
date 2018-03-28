@@ -7,8 +7,8 @@ import play.data.FormFactory;
 import play.db.ebean.Transactional;
 import play.mvc.*;
 import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 import play.api.Environment;
 
 import views.html.*;
@@ -49,5 +49,36 @@ public class UserController extends Controller {
 
     public Result profile(){
         return ok(profile.render(getUserFromSession()));
+    }
+
+    public Result listProduct(){
+	Form<Product> listProductForm = formFactory.form(Product.class);
+        // Render the Add Product View, passing the form object
+        return ok(listproduct.render(listProductForm, User.getUserById(session().get("email"))));
+    }
+
+    @Transactional
+    public Result productSubmit() {
+        // Bind form instance to the values submitted from the form
+        Form<Product> listProductForm = formFactory.form(Product.class).bindFromRequest();
+        // Check for errors
+        // Uses the validate method defined in the Login class
+        if (listProductForm.hasErrors()) {
+            // If errors, show the form again
+            return badRequest(listproduct.render(listProductForm, getUserFromSession()));
+        }
+	Product p = listProductForm.get();
+
+         if (p.getId() == null) {
+            // Save to the database via Ebean (remember Product extends Model)
+            p.save();
+        }
+        // Product already exists so update
+        else if (p.getId() != null) {
+            p.update();
+        }
+
+	flash("success", "Product " + p.getName() + " has been created");
+            return redirect(controllers.routes.UserController.profile());  
     }
 }

@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import views.html.*;
 
 import models.users.*;
+import models.*;
 
 
 /**
@@ -19,14 +20,17 @@ import models.users.*;
  * to the application's home page.
  */
 public class HomeController extends Controller {
+    
+    private Environment env;
 
     // Declare a private FormFactory instance
     private FormFactory formFactory;
 
     //  Inject an instance of FormFactory it into the controller via its constructor
     @Inject
-    public HomeController(FormFactory f) {
+    public HomeController(Environment e, FormFactory f) {
         this.formFactory = f;
+        this.env = e;
     }
 
     private User getUserFromSession(){
@@ -76,5 +80,24 @@ public class HomeController extends Controller {
         // Redirect to home
         return redirect(routes.HomeController.index());
     }
+
+	public Result products(Long catId,String filter) {
+
+    	    // Get list of all categories in ascending order
+     	   List<Category> categoriesList = Category.findAll();
+     	   List<Product> productsList = new ArrayList<Product>();
+	
+      		  if (catId == 0) {
+     	   	    // Get list of all categories in ascending order
+     	  	     productsList = Product.findAll(filter);
+     		   }
+     	 	  else {
+     	 	      // Get products for selected category
+     	 	      // Find category first then extract products for that cat.
+      	  	    productsList = Product.findFilter(catId,filter);
+     	  	 }
+
+      	  return ok(products.render(catId,filter,productsList, categoriesList, getUserFromSession(), env));
+   	 }
 
 }

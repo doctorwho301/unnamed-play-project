@@ -6,14 +6,35 @@
  *@
 @main("Profile", user) {
 <!-- SOC -->
-<div class="container">
- <div class="text-right">
+
+<div class="under-logo">
 <figure class="figure">
-  <img src="https://picsum.photos/250" class="figure-img img-fluid rounded img-right" alt="A generic square placeholder image with rounded corners in a figure.">
-  <figcaption class="text-center">@user.getUsername()</figcaption>
+  <img src="https://picsum.photos/250" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+  <figcaption class="text-center">@user.getUsername() | <a href="@controllers.security.routes.LoginController.logout()"> Logout </a></figcaption>
 </figure>
- </div>
 </div>
+
+<div class="container">
+<figure class="figure">
+  <img src="https://picsum.photos/100" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+  <figcaption class="text-center">Product &uarr;</figcaption>
+</figure>
+
+
+<figure class="figure">
+  <img src="https://picsum.photos/100" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+  <figcaption class="text-center">Product &uarr;</figcaption>
+</figure>
+
+
+
+<figure class="figure">
+  <img src="https://picsum.photos/100" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+  <figcaption class="text-center">Product &uarr;</figcaption>
+</figure>
+</div>
+
+
 
 
 
