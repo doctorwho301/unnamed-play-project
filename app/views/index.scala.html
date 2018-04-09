@@ -6,8 +6,32 @@
  *@
 @main("home", user) {
 <!-- SOC -->
+<div class="row">
 
+			<div class="col-sm-4">
+
+			</div>
+			<div class="col-sm-4" id="SearchBar">
+					<!---Search Bar Form--->
+				<div class="col-sm-12" id="setWidth">
+					<form class="navbar-form" action="@routes.HomeController.products(0)" method="get" id="marginLeft">
+						<div class="input-group" >
+							<input type="search" id="searchbox" name="filter" class="form-control" placeholder="Search">
+
+							<div class="input-group-btn">
+								<button type="submit" class="btn btn-success">
+									
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-sm-4">
+			</div>
+		</div>
 <h4> Content </h4>
+<h2> hi </h2>
 
 <!-- EOC -->
 }

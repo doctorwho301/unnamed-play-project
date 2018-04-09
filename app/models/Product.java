@@ -7,9 +7,12 @@ import play.data.validation.*;
 import javax.persistence.*;
 
 
+
+
 @Entity
 public class Product extends Model{
-    // Properties
+    
+	// Properties
     // Annotate id as the primary key
     @Id
     private Long id;
@@ -26,15 +29,11 @@ public class Product extends Model{
     @Constraints.Required
     private List<Long> catSelect = new ArrayList<Long>();
 
-    @Constraints.Required
-    private User seller;
+    private String seller;
 
     @Column(columnDefinition="VARCHAR2(1000)")
     @Constraints.Required
     private String description;
-
-    @Constraints.Required
-    private int	stock;
 
     @Constraints.Required
     private double price;
@@ -47,13 +46,12 @@ public class Product extends Model{
     }
 
     // Constructor to initialise object
-    public  Product(Long id, String name, List<Category> category, User seller, String description, int stock, double price) {
+    public  Product(Long id, String name, List<Category> category, String seller, String description, double price) {
         this.id = id;
         this.name = name;
 	this.category = category;
         this.seller = seller;
         this.description = description;
-        this.stock = stock;
         this.price = price;
     }
 
@@ -102,14 +100,6 @@ public class Product extends Model{
         this.description = description;
     }
 
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -118,11 +108,11 @@ public class Product extends Model{
         this.price = price;
     }
 
-    public User getSeller() {
+    public String getSeller() {
         return seller;
     }
 
-    public void setSeller(User seller) {
+    public void setSeller(String seller) {
         this.seller = seller;
     }
 
@@ -149,10 +139,7 @@ public class Product extends Model{
 		orderItems = orderItems;
     }
     */
-    public void decrementStock(int stockOut)
-    {
-		stock = stock - stockOut;
-    }
+
     //Misc
     //Used for printing Categories due to the fact if you do it in html causes issues.
     public String printCatList() 
@@ -170,6 +157,3 @@ public class Product extends Model{
 
 
 }
-
-
-

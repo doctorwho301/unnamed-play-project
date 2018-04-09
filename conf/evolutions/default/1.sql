@@ -19,8 +19,8 @@ create table category_product (
 create table product (
   id                            bigint not null,
   name                          varchar(255),
+  seller                        varchar(255),
   description                   varchar(1000),
-  stock                         integer,
   price                         double,
   constraint pk_product primary key (id)
 );

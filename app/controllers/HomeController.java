@@ -12,7 +12,9 @@ import javax.inject.Inject;
 import views.html.*;
 
 import models.users.*;
+
 import models.*;
+
 
 
 /**
@@ -20,18 +22,21 @@ import models.*;
  * to the application's home page.
  */
 public class HomeController extends Controller {
+
     
     private Environment env;
+
 
     // Declare a private FormFactory instance
     private FormFactory formFactory;
 
     //  Inject an instance of FormFactory it into the controller via its constructor
     @Inject
+
     public HomeController(Environment e, FormFactory f) {
         this.formFactory = f;
         this.env = e;
-    }
+	}
 
     private User getUserFromSession(){
         return User.getUserById(session().get("email"));
@@ -80,6 +85,7 @@ public class HomeController extends Controller {
         // Redirect to home
         return redirect(routes.HomeController.index());
     }
+
 
 	public Result products(Long catId,String filter) {
 

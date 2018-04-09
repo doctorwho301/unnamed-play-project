@@ -22,11 +22,13 @@ public class User extends Model {
 
     private String username;
 
+
     @Constraints.Required
     private String password;
 
     @Constraints.Required
     private String role;
+
    
     @Constraints.Required
     private String address1;
@@ -41,7 +43,9 @@ public class User extends Model {
 
     }
     //Overloaded Constructors
+
     public User(String email,String name,String password,String role, String address1, String address2, String city)
+
     {
 
         this.role = role;
@@ -51,7 +55,8 @@ public class User extends Model {
         this.password = password;
         this.address1 = address1;
         this.address2 = address2;
-	this.city = city;
+		this.city = city;
+        this.password = password;
     }
 
     //Generic query helper for entity User with unique id String
@@ -111,7 +116,6 @@ public class User extends Model {
 	return city;
     }
 
-
     public void setEmail(String email)
     {
         this.email = email;
@@ -144,5 +148,4 @@ public class User extends Model {
     {
 	this.city = city;
     }
-
 }
