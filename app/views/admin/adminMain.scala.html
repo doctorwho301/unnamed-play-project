@@ -1,0 +1,171 @@
+
+@import controllers.security
+@(title: String, user: models.users.User)(content: Html)
+
+<!DOCTYPE html>
+<html lang="en-IE">
+    <head>
+        <title>Anime</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width , initial-scale=1">
+        <link rel="stylesheet" media="screen" href="base.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+        @* Here's where we render the page title `String`. *@
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/icon.png")">
+
+
+
+
+
+
+
+    </head>
+    <body>
+
+        
+
+            <!---Container & Structure for the Content of the page.--->
+        <div class="container-fluid">
+            <div class="row">
+                    <!---Left hand Side of Container.--->
+                <div class="col-sm-2" >
+
+                </div>
+
+                    <!---Center of Container.--->
+                <div class="col-sm-8">
+
+                        <!---Navigation Links--->
+                    <div class="navbar-header" id="BackgroundDarkGrey">
+
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#NavbarResponsive">
+
+                            <span class="glyphicon glyphicon-th-list" id="textDarkRed"></span>
+
+                        </button>
+
+                    </div>
+                        <!---Start of Mobile Friendly collapse Navbar--->
+                    <div class="collapse navbar-collapse" id="NavbarResponsive" >
+                        <div class="row">
+                            <nav class="navbar">
+
+                                    <!---This is Used to Restructure the Navbar for Mobile Users.--->
+                                <div class="col-sm-1">
+                                </div>
+                                <div class="col-sm-2" id="NavLeftBar">
+                                    <ul class="nav navbar-nav">
+                                        <li>
+                                            <a href="@controllers.routes.AdminController.indexAdmin()" alt="Home Link."><span class="glyphicon glyphicon-home" id="textDarkRed"></span></a>
+                                        </li>
+                                        <li>
+                                            <a href="" alt="Link to Sign Out." id="textDarkRed">Logout</a>
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+
+                                <div class="col-sm-6" id="NavCentBar">
+
+                                        <!---Nav Click Links--->
+                                    <div class="col-sm-3">
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <ul class="nav navbar-nav">
+                                            <li>
+                                                <a href="@routes.HomeController.products()" id="textDarkRed">Products</a>
+                                            </li>
+                                            <li>
+                                                <a href="" id="textDarkRed">Media</a>
+                                            </li>
+                                            <li>
+                                                <a href="" id="textDarkRed">Forum</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="col-sm-2" id="NavRightBar">
+
+
+                                        <!---Cart & SignUp,SignIn Nav Links--->
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li>
+                                            <a href="" alt="Cart Link."><span class="glyphicon glyphicon-shopping-cart" id="textDarkRed"></span></a>
+                                        </li>
+
+                                        <li>
+                                            <a href="" alt="SignUp&SignIn Link."><span class="glyphicon glyphicon-user" id="textDarkRed"></span></a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="col-sm-1">
+                                </div>
+
+                                    <!---End of Row--->
+                            </nav>
+                        </div>
+                            <!---End of Mobile Friendly collapse Navbar--->
+                    </div>
+
+                </div>
+
+                    <!---Right hand Side of Container.--->
+                <div class="col-sm-2">
+                </div>
+            </div>
+                <!---Start of Content addition Section--->
+            <div class="row">
+        @content
+            </div>
+                <!---End of Content addition Section--->
+
+                <!---End of Page Links Support/About Us and Others Such as Social Media--->
+
+
+            <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-8" id="FooterTop">
+                    <p>www.<span id="textLightRed">A</span>portal.ie</p>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+
+                </div>
+                <div class="col-sm-8" id="FooterBottom">
+                    <a href="" alt="Link." id="FooterLink">
+                        <p>User Support.</p>
+                    </a>
+
+                    <a href="" alt="Link." id="FooterLink">
+                        <p>About Us.</p>
+                    </a>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+
+        </div>
+            <!---DIV above is the end of the Container.--->
+    </body>
+</html>
+
+

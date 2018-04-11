@@ -60,7 +60,14 @@ public class LoginController extends Controller {
             session("email", loginForm.get().getEmail());
         }
         // Return to admin or customer home page
+            User u = User.getUserById(session().get("email"));
+	
+        if (u.getRole() == "admin") {
+            return redirect(controllers.routes.AdminController.indexAdmin());
+        }
+        else {
             return redirect(controllers.routes.HomeController.index());
+        }
         
     }
 
@@ -73,6 +80,8 @@ public class LoginController extends Controller {
         return redirect(controllers.routes.HomeController.index());
 		
     }
+
+
 
 
 

@@ -1,0 +1,50 @@
+@(user : models.users.User, env: play.api.Environment)
+
+@admin.adminMain("indexAdmin",user){
+			<div class="col-sm-2">
+			</div>
+			<div class="col-sm-8">
+				@if(flash.containsKey("error")) {
+					<div class="alert alert-warning">
+						@flash.get("error")					
+					</div>
+				}
+
+				<div class="row">
+				<div class="col-sm-2">
+				</div>
+				<div class="col-sm-8" id="AdminHomeWrapper">
+					<div id ="AdminHomeHeader">
+						<h1 id="textLightRed"> Admin Home</h1>					
+					</div>
+					<div id = "AdminHomeBody">
+						<div class="page-header" id="AdminHomeTitle">					
+							<h2 class="BreakWord"> ADMIN ACCESS ONLY UNAUTHORIZED USERS <br> WILL BE PROSECUTED!!! </h2>
+						</div>
+						<div class="row">
+							<div class="col-sm-1">					
+							</div>
+							<div class="col-sm-10">
+								<a href="@controllers.routes.AdminController.products()" class="btn btn-block" id="Buttons" alt="Link to edit products page">
+								Edit Products
+								</a>
+
+								<a href="" class="btn btn-block" id="Buttons">Edit Media</a>
+								<a href="" class="btn btn-block" id="Buttons">Edit Advert</a>
+								<a href="" class="btn btn-block" id="Buttons">Support Queries</a>
+							</div>
+							<div class="col-sm-1">
+							</div>
+						</div>						
+					</div>
+					
+				</div>
+				<div class="col-sm-2">
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-2">
+		</div>
+
+
+}

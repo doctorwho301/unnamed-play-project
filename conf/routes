@@ -30,3 +30,27 @@ POST    /signUpSubmit                       controllers.HomeController.signupSub
 
 GET     /user/listproduct                   controllers.UserController.listProduct
 POST    /user/productSubmit                 controllers.UserController.productSubmit
+
+
+
+
+################
+# Admin Routes #
+################
+
+#This is used to generate the Administrators index page for the admin.
+GET	   /admin/indexAdmin		    controllers.AdminController.indexAdmin
+# products accepts a parameter default to 0 (Long)
+GET     /admin/products               controllers.AdminController.products(cat:Long ?=0L)
+
+# Request to load the add product form
+GET     /admin/addproduct                  controllers.AdminController.addProduct
+
+# Data submitted by the form
+POST    /admin/addProductSubmit            controllers.AdminController.addProductSubmit
+
+# Delete a product by an id passed as a parameter
+GET    /admin/delProduct/:id               controllers.AdminController.deleteProduct(id: Long)
+
+# Update a product by id
+GET	    /admin/updateProduct/:id        controllers.AdminController.updateProduct(id: Long)
