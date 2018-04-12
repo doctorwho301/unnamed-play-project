@@ -62,7 +62,7 @@ public class LoginController extends Controller {
         // Return to admin or customer home page
             User u = User.getUserById(session().get("email"));
 	
-        if (u.getRole() == "admin") {
+        if (u instanceof Admin) {
             return redirect(controllers.routes.AdminController.indexAdmin());
         }
         else {

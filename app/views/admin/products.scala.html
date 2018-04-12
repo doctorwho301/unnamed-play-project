@@ -38,8 +38,8 @@
 	            					<th>ID</th>
 	            					<th>Name</th>
 	            					<th>Description</th>
-	           					<th>Stock</th>
-            						<th>Price</th>
+	           					<th>Price</th>
+            						<th>Seller</th>
             						<th>Edit</th>
 	    						<th>Delete</th>
 	         				 </tr>
@@ -52,8 +52,8 @@
 	                  				  <td>@p.getId</td>
 					                  <td>@p.getName</td>	                 
 					                  <td>@p.getDescription</td>
-					                  
 					                  <td>&euro; @("%.2f".format(p.getPrice))</td>
+									  <td>@p.getSeller</td>
 	
 				                  <!-- Edit product button -->
 					                  <td>

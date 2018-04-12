@@ -11,6 +11,10 @@ import play.Logger;
 // Product Entity managed by the ORM
 @Entity
 
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
+@DiscriminatorColumn(name="role")
+
 public class User extends Model {
 
 
